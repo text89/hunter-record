@@ -51,15 +51,34 @@
             /* width: 80px;  */
             text-align: left;
         }
-        button.record {
+        button.record-tera {
             padding: 10px 15px;
             border: none;
             border-radius: 4px;
-            background-color: #007bff;
+            background-color: #7baa00;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s;
-            margin-left: 10px; /* Ensure spacing between label and button */
+            font-size: 18px;
+        }
+        button.record-turi {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007baa;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+        button.record-ange {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #cc7b00;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
             font-size: 18px;
         }
         button#copy {
@@ -100,6 +119,7 @@
             }
             .text-container {
                 margin-top: 20px;
+                padding-right: 20px; /* Add padding right to create space */
             }
         }
         table {
@@ -131,72 +151,72 @@
                 <tr>
                     <td ><b>テラガード</b></td>
                     <td><label>PvP</label></td>
-                    <td><button class="record" onclick="addTimestamp('テラガード ＰｖＰ')">記録</button></td>
+                    <td><button class="record-tera" onclick="addTimestamp('テラガード ＰｖＰ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>1ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('テラガード １ｃｈ')">記録</button></td>
+                    <td><button class="record-tera" onclick="addTimestamp('テラガード １ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>2ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('テラガード ２ｃｈ')">記録</button></td>
+                    <td><button class="record-tera" onclick="addTimestamp('テラガード ２ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>3ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('テラガード ３ｃｈ')">記録</button></td>
+                    <td><button class="record-tera" onclick="addTimestamp('テラガード ３ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td ><b>トゥリア</b></td>
                     <td><label>PvP</label></td>
-                    <td><button class="record" onclick="addTimestamp('トゥリア　 ＰｖＰ')">記録</button></td>
+                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ＰｖＰ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>1ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('トゥリア　 １ｃｈ')">記録</button></td>
+                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 １ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>2ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('トゥリア　 ２ｃｈ')">記録</button></td>
+                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ２ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>3ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('トゥリア　 ３ｃｈ')">記録</button></td>
+                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ３ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>4ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('トゥリア　 ４ｃｈ')">記録</button></td>
+                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ４ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>5ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('トゥリア　 ５ｃｈ')">記録</button></td>
+                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ５ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td ><b>アンゲロス</b></td>
                     <td><label>PvP</label></td>
-                    <td><button class="record" onclick="addTimestamp('アンゲロス ＰｖＰ')">記録</button></td>
+                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス ＰｖＰ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>1ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('アンゲロス １ｃｈ')">記録</button></td>
+                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス １ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>2ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('アンゲロス ２ｃｈ')">記録</button></td>
+                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス ２ｃｈ')">記録</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><label>3ch</label></td>
-                    <td><button class="record" onclick="addTimestamp('アンゲロス ３ｃｈ')">記録</button></td>
+                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス ３ｃｈ')">記録</button></td>
                 </tr>
             </table>
         </div>
