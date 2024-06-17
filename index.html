@@ -243,8 +243,15 @@
     
         function copyToClipboard() {
             const output = document.getElementById('output');
+            const textToCopy = `\`\`\`c\n${output.value}\`\`\``;
+            output.value = textToCopy;
+
             output.select();
             document.execCommand('copy');
+
+            // Restore the original text in the textarea
+            output.value = textToCopy.slice(5, -3);
+
             alert('テキストがクリップボードにコピーされました');
         }
     
