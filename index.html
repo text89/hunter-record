@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #fff;
+            background-color: #f8f9fa;
             color: #333;
             margin: 0;
             padding: 0;
@@ -16,245 +16,290 @@
             align-items: flex-start;
             min-height: 100vh;
             box-sizing: border-box;
-            font-size: 18px; /* Increase the base font size */
+            font-size: 16px; /* Base font size increased */
         }
         .container {
             padding: 20px;
             border-radius: 8px;
             width: 100%;
             max-width: 1200px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
         }
         .content {
             display: flex;
             flex-direction: row;
             width: 100%;
+            gap: 20px;
         }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+        .button-container, .text-container {
             width: 100%;
             max-width: 400px;
             box-sizing: border-box;
-        }
-        .button-label-set {
-            display: flex;
-            align-items: left;
-            margin: 5px 0;
-            width: 100%;
-        }
-        .button-label-set label {
-            margin-right: 10px;
-            margin-top: 10px;
-            font-weight: bold;
-            /* width: 80px;  */
-            text-align: left;
-        }
-        button.record-tera {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            background-color: #7baa00;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 18px;
-        }
-        button.record-turi {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007baa;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 18px;
-        }
-        button.record-ange {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            background-color: #cc7b00;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 18px;
-        }
-        button#copy {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 18px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .text-container {
-            display: flex;
-            flex-direction: column;
-            margin-left: 0px;
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-        }
-        textarea {
-            width: 100%;
-            padding-left: 0px;
-            padding-right: 0px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: none;
-            box-sizing: border-box;
-            font-size: 18px;
-        }
-        @media screen and (max-width: 800px) {
-            .content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .text-container {
-                margin-top: 20px;
-            }
         }
         table {
             width: 100%;
             table-layout: fixed;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
         td {
-            padding: 5px;
+            padding: 2px;
+            text-align: center;
         }
         td label {
-            width: 80px;
+            width: 80px; /* Width increased for larger text */
             display: inline-block;
         }
-        td button {
-            width: 100px;
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px; /* Font size increased */
+            margin: 2px;
+        }
+        button.record-tera {
+            background-color: #7baa00;
+            color: #fff;
+        }
+        button.record-turi {
+            background-color: #007baa;
+            color: #fff;
+        }
+        button.record-ange {
+            background-color: #cc7b00;
+            color: #fff;
+        }
+        button#copy {
+            background-color: #007bff;
+            color: #fff;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        button.add-remove {
+            background-color: #555;
+            color: #f8f9fa;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            box-sizing: border-box;
+            font-size: 16px; /* Font size increased */
+            min-height: 300px;
+        }
+        @media screen and (max-width: 800px) {
+            .content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .text-container {
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="content">
-        <div class="button-container">
-            <table>
-                <tr>
-                    
-                </tr>
-                <tr>
-                    <td ><b>テラガード</b></td>
-                    <td><label>PvP</label></td>
-                    <td><button class="record-tera" onclick="addTimestamp('テラガード ＰｖＰ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>1ch</label></td>
-                    <td><button class="record-tera" onclick="addTimestamp('テラガード １ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>2ch</label></td>
-                    <td><button class="record-tera" onclick="addTimestamp('テラガード ２ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>3ch</label></td>
-                    <td><button class="record-tera" onclick="addTimestamp('テラガード ３ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>4ch</label></td>
-                    <td><button class="record-tera" onclick="addTimestamp('テラガード ４ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td ><b>トゥリア</b></td>
-                    <td><label>PvP</label></td>
-                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ＰｖＰ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>1ch</label></td>
-                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 １ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>2ch</label></td>
-                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ２ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>3ch</label></td>
-                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ３ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>4ch</label></td>
-                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ４ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>5ch</label></td>
-                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ５ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>6ch</label></td>
-                    <td><button class="record-turi" onclick="addTimestamp('トゥリア　 ６ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td ><b>アンゲロス</b></td>
-                    <td><label>PvP</label></td>
-                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス ＰｖＰ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>1ch</label></td>
-                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス １ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>2ch</label></td>
-                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス ２ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>3ch</label></td>
-                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス ３ｃｈ')">記録</button></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><label>4ch</label></td>
-                    <td><button class="record-ange" onclick="addTimestamp('アンゲロス ４ｃｈ')">記録</button></td>
-                </tr>
-            </table>
-        </div>
-        <div class="text-container">
-            <h3>コピー用</h3>
-            <textarea id="output" rows="12"></textarea>
-            <button id="copy" style="margin-top: 10px; width: 100%;" onclick="copyToClipboard()">コピー</button>
+    <div class="container">
+        <div class="content">
+            <div class="button-container">
+                <table>
+                    <tr>
+                        <td><b>テラガード</b></td>
+                        <td><label>PvP</label></td>
+                        <td><button class="record-tera" onclick="addTimestamp('テラガード PvP')">記録</button></td>
+                    </tr>
+                    <tbody id="tera-channels">
+                        <tr>
+                            <td></td>
+                            <td><label>1ch</label></td>
+                            <td><button class="record-tera" onclick="addTimestamp('テラガード 1ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>2ch</label></td>
+                            <td><button class="record-tera" onclick="addTimestamp('テラガード 2ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>3ch</label></td>
+                            <td><button class="record-tera" onclick="addTimestamp('テラガード 3ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>4ch</label></td>
+                            <td><button class="record-tera" onclick="addTimestamp('テラガード 4ch')">記録</button></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td colspan="3">
+                            <button class="add-remove" onclick="addChannel('tera')">＋</button>
+                            <button class="add-remove" onclick="removeChannel('tera')">－</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>トゥリア</b></td>
+                        <td><label>PvP</label></td>
+                        <td><button class="record-turi" onclick="addTimestamp('トゥリア PvP')">記録</button></td>
+                    </tr>
+                    <tbody id="turi-channels">
+                        <tr>
+                            <td></td>
+                            <td><label>1ch</label></td>
+                            <td><button class="record-turi" onclick="addTimestamp('トゥリア 1ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>2ch</label></td>
+                            <td><button class="record-turi" onclick="addTimestamp('トゥリア 2ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>3ch</label></td>
+                            <td><button class="record-turi" onclick="addTimestamp('トゥリア 3ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>4ch</label></td>
+                            <td><button class="record-turi" onclick="addTimestamp('トゥリア 4ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>5ch</label></td>
+                            <td><button class="record-turi" onclick="addTimestamp('トゥリア 5ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>6ch</label></td>
+                            <td><button class="record-turi" onclick="addTimestamp('トゥリア 6ch')">記録</button></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td colspan="3">
+                            <button class="add-remove" onclick="addChannel('turi')">＋</button>
+                            <button class="add-remove" onclick="removeChannel('turi')">－</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>アンゲロス</b></td>
+                        <td><label>PvP</label></td>
+                        <td><button class="record-ange" onclick="addTimestamp('アンゲロス PvP')">記録</button></td>
+                    </tr>
+                    <tbody id="ange-channels">
+                        <tr>
+                            <td></td>
+                            <td><label>1ch</label></td>
+                            <td><button class="record-ange" onclick="addTimestamp('アンゲロス 1ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>2ch</label></td>
+                            <td><button class="record-ange" onclick="addTimestamp('アンゲロス 2ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>3ch</label></td>
+                            <td><button class="record-ange" onclick="addTimestamp('アンゲロス 3ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>4ch</label></td>
+                            <td><button class="record-ange" onclick="addTimestamp('アンゲロス 4ch')">記録</button></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td colspan="3">
+                            <button class="add-remove" onclick="addChannel('ange')">＋</button>
+                            <button class="add-remove" onclick="removeChannel('ange')">－</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="text-container">
+                <h3>コピー用</h3>
+                <textarea id="output" rows="20"></textarea>
+                <button id="copy" onclick="copyToClipboard()">コピー</button>
+            </div>
         </div>
     </div>
-</div>
-
-<script>
-    function addTimestamp(label) {
-        const output = document.getElementById('output');
-        const currentTime = new Date().toLocaleTimeString();
-        output.value += `${label}: ${currentTime}\n`;
-    }
-
-    function copyToClipboard() {
-        const output = document.getElementById('output');
-        output.select();
-        document.execCommand('copy');
-        alert('テキストがクリップボードにコピーされました');
-    }
-</script>
-
+    
+    <script>
+        let teraCount = 4;
+        let turiCount = 6;
+        let angeCount = 4;
+    
+        function addTimestamp(label) {
+            const output = document.getElementById('output');
+            const currentTime = new Date().toLocaleTimeString('it-IT');
+            output.value += `[${currentTime}] ${label}\n`;
+        }
+    
+        function copyToClipboard() {
+            const output = document.getElementById('output');
+            output.select();
+            document.execCommand('copy');
+            alert('テキストがクリップボードにコピーされました');
+        }
+    
+        function addChannel(type) {
+            let count;
+            let tbody;
+            let label;
+    
+            switch (type) {
+                case 'tera':
+                    count = ++teraCount;
+                    tbody = document.getElementById('tera-channels');
+                    label = 'テラガード';
+                    break;
+                case 'turi':
+                    count = ++turiCount;
+                    tbody = document.getElementById('turi-channels');
+                    label = 'トゥリア';
+                    break;
+                case 'ange':
+                    count = ++angeCount;
+                    tbody = document.getElementById('ange-channels');
+                    label = 'アンゲロス';
+                    break;
+            }
+    
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td></td><td><label>${count}ch</label></td><td><button class="record-${type}" onclick="addTimestamp('${label} ${count}ch')">記録</button></td>`;
+            tbody.appendChild(tr);
+        }
+    
+        function removeChannel(type) {
+            let count;
+            let tbody;
+    
+            switch (type) {
+                case 'tera':
+                    if (teraCount <= 1) return;
+                    count = teraCount--;
+                    tbody = document.getElementById('tera-channels');
+                    break;
+                case 'turi':
+                    if (turiCount <= 1) return;
+                    count = turiCount--;
+                    tbody = document.getElementById('turi-channels');
+                    break;
+                case 'ange':
+                    if (angeCount <= 1) return;
+                    count = angeCount--;
+                    tbody = document.getElementById('ange-channels');
+                    break;
+            }
+    
+            tbody.removeChild(tbody.lastElementChild);
+        }
+    </script>
 </body>
 </html>
