@@ -73,10 +73,15 @@
             background-color: #cc7b00;
             color: #fff;
         }
-        button#copy {
-            background-color: #007bff;
+        button.copy {
             color: #fff;
-            width: 100%;
+            width: 48%;
+        }
+        button#copy-plane {
+            background-color: #007baa;
+        }
+        button#copy-highlight {
+            background-color: #cc7b00;
         }
         button:hover {
             opacity: 0.8;
@@ -94,6 +99,34 @@
             box-sizing: border-box;
             font-size: 16px; /* Font size increased */
             min-height: 300px;
+            font-family: monospace; /* Set to monospace font */
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 10px;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fcfcfc;
+            padding: 8px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeSlideDown 0.5s ease-out;
+        }
+        @keyframes fadeSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
         }
         @media screen and (max-width: 800px) {
             .content {
@@ -225,11 +258,19 @@
             <div class="text-container">
                 <h3>コピー用</h3>
                 <textarea id="output" rows="20"></textarea>
-                <button id="copy" onclick="copyToClipboard()">コピー</button>
+                <button class="copy" id="copy-plane" onclick="copyToClipboard()">コピー（そのまま）</button>
+                <button class="copy" id="copy-highlight" onclick="copyToClipboardHighlight()">コピー（ハイライト）</button>
             </div>
         </div>
     </div>
     
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
     <script>
         let teraCount = 4;
         let turiCount = 6;
@@ -240,8 +281,16 @@
             const currentTime = new Date().toLocaleTimeString('it-IT');
             output.value += `[${currentTime}] ${label}\n`;
         }
-    
+
         function copyToClipboard() {
+            const output = document.getElementById('output');
+            output.select();
+            document.execCommand('copy');
+
+            showModal('テキストがクリップボードにコピーされました');
+        }
+    
+        function copyToClipboardHighlight() {
             const output = document.getElementById('output');
             const textToCopy = `\`\`\`c\n${output.value}\`\`\``;
             output.value = textToCopy;
@@ -252,7 +301,7 @@
             // Restore the original text in the textarea
             output.value = textToCopy.slice(5, -3);
 
-            alert('テキストがクリップボードにコピーされました');
+            showModal('テキストがクリップボードにコピーされました');
         }
     
         function addChannel(type) {
@@ -306,6 +355,19 @@
             }
     
             tbody.removeChild(tbody.lastElementChild);
+        }
+
+        function showModal(message) {
+            const modal = document.getElementById("myModal");
+            const modalText = document.getElementById("modal-text");
+            modalText.textContent = message;
+            modal.style.display = "block";
+            setTimeout(closeModal, 1500); // Close the modal after 2 seconds
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
         }
     </script>
 </body>
