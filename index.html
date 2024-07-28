@@ -73,6 +73,10 @@
             background-color: #cc7b00;
             color: #fff;
         }
+        button.record-font {
+            background-color: #b533bb;
+            color: #fff;
+        }
         button.copy {
             color: #fff;
             width: 48%;
@@ -253,6 +257,29 @@
                             <button class="add-remove" onclick="removeChannel('ange')">－</button>
                         </td>
                     </tr>
+                    <tr>
+                        <td><b>フォントゥナス</b></td>
+                        <td><label>PvP</label></td>
+                        <td><button class="record-font" onclick="addTimestamp('フォントゥナス PvP')">記録</button></td>
+                    </tr>
+                    <tbody id="font-channels">
+                        <tr>
+                            <td></td>
+                            <td><label>1ch</label></td>
+                            <td><button class="record-font" onclick="addTimestamp('フォントゥナス 1ch')">記録</button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><label>2ch</label></td>
+                            <td><button class="record-font" onclick="addTimestamp('フォントゥナス 2ch')">記録</button></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td colspan="3">
+                            <button class="add-remove" onclick="addChannel('font')">＋</button>
+                            <button class="add-remove" onclick="removeChannel('font')">－</button>
+                        </td>
+                    </tr>
                 </table>
             </div>
             <div class="text-container">
@@ -275,7 +302,8 @@
         let teraCount = 4;
         let turiCount = 6;
         let angeCount = 4;
-    
+        let fontCount = 2;
+
         function addTimestamp(label) {
             const output = document.getElementById('output');
             const currentTime = new Date().toLocaleTimeString('it-IT');
@@ -289,7 +317,7 @@
 
             showModal('テキストがクリップボードにコピーされました');
         }
-    
+
         function copyToClipboardHighlight() {
             const output = document.getElementById('output');
             const textToCopy = `\`\`\`c\n${output.value}\`\`\``;
@@ -303,12 +331,12 @@
 
             showModal('テキストがクリップボードにコピーされました');
         }
-    
+
         function addChannel(type) {
             let count;
             let tbody;
             let label;
-    
+
             switch (type) {
                 case 'tera':
                     count = ++teraCount;
@@ -325,17 +353,22 @@
                     tbody = document.getElementById('ange-channels');
                     label = 'アンゲロス';
                     break;
+                case 'font':
+                    count = ++fontCount;
+                    tbody = document.getElementById('font-channels');
+                    label = 'フォントゥナス';
+                    break;
             }
-    
+
             const tr = document.createElement('tr');
             tr.innerHTML = `<td></td><td><label>${count}ch</label></td><td><button class="record-${type}" onclick="addTimestamp('${label} ${count}ch')">記録</button></td>`;
             tbody.appendChild(tr);
         }
-    
+
         function removeChannel(type) {
             let count;
             let tbody;
-    
+
             switch (type) {
                 case 'tera':
                     if (teraCount <= 1) return;
@@ -352,8 +385,13 @@
                     count = angeCount--;
                     tbody = document.getElementById('ange-channels');
                     break;
+                case 'font':
+                    if (fontCount <= 1) return;
+                    count = fontCount--;
+                    tbody = document.getElementById('font-channels');
+                    break;
             }
-    
+
             tbody.removeChild(tbody.lastElementChild);
         }
 
@@ -362,7 +400,7 @@
             const modalText = document.getElementById("modal-text");
             modalText.textContent = message;
             modal.style.display = "block";
-            setTimeout(closeModal, 1500); // Close the modal after 2 seconds
+            setTimeout(closeModal, 1500); // Close the modal after 1.5 seconds
         }
 
         function closeModal() {
